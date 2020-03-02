@@ -7,11 +7,11 @@ const register = user => dispatch => {
   return axios
     .post("https://secretfamrecipes.herokuapp.com/api/auth/register", user)
     .then(res => {
-      //   console.log(res);
+      console.log("I am registered", res);
       dispatch({ type: REGISTER_SUCCESS, payload: res });
     })
     .catch(err => {
-      console.log(err);
+      console.log("You failed to register me", err);
       dispatch({ type: REGISTER_FAILURE, payload: err });
     });
 };

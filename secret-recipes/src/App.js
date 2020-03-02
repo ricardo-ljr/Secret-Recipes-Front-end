@@ -4,7 +4,7 @@ import "./App.css";
 
 // COMPONENTS IMPORTS
 import Home from "./components/Home";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import { PrivateRoute } from "./utils/PrivateRoute";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
@@ -12,13 +12,18 @@ import Login from "./components/Login";
 function App() {
   return (
     <div className="App">
+      <div className="navigation">
+        <h1>Home Page</h1>
+        <Link to="/login">Login</Link>
+        <Link to="/">Sign Up</Link>
+      </div>
       <Switch>
         {/* ROUTES */}
         <Route exact path="/" component={SignUp} />
         <Route exact path="/login" component={Login} />
 
         {/* PRIVATE ROUTES */}
-        <PrivateRoute exact path="/home" component={Home} />
+        <Route exact path="/home" component={Home} />
       </Switch>
     </div>
   );
