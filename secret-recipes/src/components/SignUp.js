@@ -18,6 +18,13 @@ const SignUp = () => {
     const handleSubmit = e => {
         e.preventDefault();
         console.log(userInfo);
+        setUserInfo({
+            id: Date.now(),
+            name: '',
+            email: '',
+            username: '',
+            password: ''
+        })
     }
 
     return (
