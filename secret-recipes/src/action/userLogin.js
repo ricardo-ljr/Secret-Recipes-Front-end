@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from "./index";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
@@ -8,8 +6,8 @@ const login = (user, history) => dispatch => {
   return axiosWithAuth()
     .post("/auth/login", user)
     .then(res => {
-      console.log(res);
-      localStorage.setItem("token", red.data.token);
+      // console.log(res);
+      localStorage.setItem("token", res.data.token);
       localStorage.setItem("id", res.data.id);
 
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
