@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import TextField from "@material-ui/core/TextField";
@@ -14,7 +15,8 @@ const initialState = {
   creator: "",
   ingredients: "",
   directions: "",
-  category: ""
+  category: "",
+  user_id: localStorage.getItem("id")
 };
 
 const AddRecipe = props => {
@@ -36,6 +38,11 @@ const AddRecipe = props => {
 
   return (
     <div>
+      <Link onClick={props.getRecipes} to="/all-recipes">
+        All Recipes
+      </Link>
+      <Link to="/user-recipes">Recipes by Author</Link>
+      <Link to="/add-recipe">Add Recipe</Link>
       <h2>Add a Recipe</h2>
       <form onSubmit={handleSubmit}>
         <br />

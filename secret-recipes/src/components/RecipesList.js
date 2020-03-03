@@ -40,16 +40,22 @@ function RecipesList(props) {
   //   };
 
   return (
-    <div>
+    <div className="recipes-body">
       <Link onClick={props.getRecipes} to="/all-recipes">
         All Recipes
       </Link>
       <Link to="/user-recipes">Recipes by Author</Link>
       <Link to="/add-recipe">Add Recipe</Link>
-      {props.recipesList.map(recipe => {
-        console.log("Recipe here", recipe);
-        return <div key={recipe.id}>{recipe.title}</div>;
-      })}
+      <div className="recipe-card">
+        {props.recipesList.map(recipe => {
+          console.log("Recipe here", recipe);
+          return (
+            <div key={recipe.id} className="recipe-container">
+              {recipe.title}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
