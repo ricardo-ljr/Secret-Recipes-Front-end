@@ -8,6 +8,9 @@ import { Route, Switch, Link } from "react-router-dom";
 import { PrivateRoute } from "./utils/PrivateRoute";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import UserRecipes from "./components/UserRecipes";
+import AddRecipe from "./components/AddRecipe";
+import RecipesList from "./components/RecipesList";
 
 function App() {
   return (
@@ -23,7 +26,10 @@ function App() {
         <Route exact path="/login" component={Login} />
 
         {/* PRIVATE ROUTES */}
-        <Route exact path="/home" component={Home} />
+        <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRoute exact path="/user-recipes" component={UserRecipes} />
+        <PrivateRoute exact path="/all-recipes" component={RecipesList} />
+        <PrivateRoute extact path="/add-recipe" component={AddRecipe} />
       </Switch>
     </div>
   );

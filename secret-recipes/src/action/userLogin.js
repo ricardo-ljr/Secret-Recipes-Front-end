@@ -7,8 +7,8 @@ const login = (user, history) => dispatch => {
     .post("/auth/login", user)
     .then(res => {
       // console.log(res);
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("id", res.data.id);
+      localStorage.setItem("token", res.data.message);
+      localStorage.setItem("id", res.data.user_id);
 
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       history.push("/home");

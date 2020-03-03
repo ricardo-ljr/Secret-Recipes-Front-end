@@ -8,7 +8,6 @@ import signUp from "../action/userSignUp";
 
 const SignUp = props => {
   const [userInfo, setUserInfo] = useState({
-    id: Date.now(),
     name: "",
     email: "",
     username: "",
@@ -28,7 +27,6 @@ const SignUp = props => {
     props.signUp(userInfo);
 
     setUserInfo({
-      id: Date.now(),
       name: "",
       email: "",
       username: "",
