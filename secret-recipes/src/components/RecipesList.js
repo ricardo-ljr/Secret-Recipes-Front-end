@@ -51,7 +51,9 @@ function RecipesList(props) {
           console.log("Recipe here", recipe);
           return (
             <div key={recipe.id} className="recipe-container">
-              {recipe.title}
+              <p>{recipe.title}</p>
+              <p>{recipe.creator}</p>
+              {recipe.ingredients}
             </div>
           );
         })}
