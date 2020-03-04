@@ -14,6 +14,7 @@ import AddRecipe from "./components/AddRecipe";
 import RecipesList from "./components/RecipesList";
 import UpdateRecipe from "./components/UpdateRecipe";
 
+
 function App() {
   return (
     // <BrowserRouter>
@@ -22,7 +23,7 @@ function App() {
         <div className='logo'>
           <h1>Secret Family Recipes</h1>
         </div>
-        <div>
+        <div className='nav-link-container'>
           {/* <Link to="/login">Login</Link> */}
           <a className='nav-link' href='#'>About Us</a>
           <a className='nav-link' href='#'>Contact</a>

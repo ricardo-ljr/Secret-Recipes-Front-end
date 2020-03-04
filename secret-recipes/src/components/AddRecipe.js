@@ -43,7 +43,7 @@ const AddRecipe = props => {
       <div className='tabs-container'>
         <Link className='tab' onClick={props.getRecipes} to="/all-recipes">All Recipes</Link>
         <Link className='tab' to="/user-recipes">Recipes by Author</Link>
-        <Link className='tab' to="/add-recipe">Add Recipe</Link>
+        <Link className='tab active' to="/add-recipe">Add Recipe</Link>
       </div>
       <div className='entry-container'>
         <h2>Add a Recipe</h2>
