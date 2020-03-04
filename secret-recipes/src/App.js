@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import "./App.css";
 
@@ -11,6 +12,7 @@ import Login from "./components/Login";
 import UserRecipes from "./components/UserRecipes";
 import AddRecipe from "./components/AddRecipe";
 import RecipesList from "./components/RecipesList";
+import UpdateRecipe from "./components/UpdateRecipe";
 
 function App() {
   return (
@@ -30,7 +32,12 @@ function App() {
         <PrivateRoute exact path="/home" component={Home} />
         <PrivateRoute exact path="/user-recipes" component={UserRecipes} />
         <PrivateRoute exact path="/all-recipes" component={RecipesList} />
-        <PrivateRoute extact path="/add-recipe" component={AddRecipe} />
+        <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
+        <PrivateRoute
+          exact
+          path="/update-recipe/:id"
+          component={UpdateRecipe}
+        />
       </Switch>
     </div>
     </BrowserRouter>

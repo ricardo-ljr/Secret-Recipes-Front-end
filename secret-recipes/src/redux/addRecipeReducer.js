@@ -10,7 +10,7 @@ const initialState = {
   addRecipe: false
 };
 
-const addRecipeReducer = (state = initialState, { type, payload }) => {
+export const addRecipeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_RECIPE_START:
       return {
@@ -33,5 +33,3 @@ const addRecipeReducer = (state = initialState, { type, payload }) => {
       return state;
   }
 };
-
-export default addRecipeReducer;
