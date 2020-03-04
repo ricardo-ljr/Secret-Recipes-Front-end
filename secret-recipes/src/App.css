@@ -89,7 +89,11 @@ body{
   font-weight: bold;
 }
 
-
+.search-input{
+  font-size: 16px;
+  height: 25px;
+  text-align: center;
+}
 
 .recipes-body {
   margin: 0 auto;

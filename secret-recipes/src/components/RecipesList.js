@@ -22,11 +22,19 @@ function RecipesList(props) {
   console.log("Look at me, props", props);
 
   const [recipeList, setRecipeList] = useState(initialState);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     console.log("ID Here", props.id);
     props.getRecipes(props.id);
+    // setRecipeList(props.recipesList);
   }, []);
+
+  useEffect(() => {
+    const result = props.recipesList.filter(recipe => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    console.log('Filtered recipes: ', result)
+    setRecipeList(result);
+  }, [searchTerm])
 
   //   useEffect(() => {
   //     axiosWithAuth()
@@ -54,6 +62,17 @@ function RecipesList(props) {
     // props.history.push("/all-recipes");
   };
 
+  const handleSearch = e => {
+    setSearchTerm(e.target.value)
+  }
+
+  let recipeData = [];
+  if(recipeList.length > 1){
+    recipeData = recipeList
+  } else {
+    recipeData = props.recipesList
+  } 
+  
   return (
     <div>
       <div className='tabs-container'>
@@ -61,8 +80,9 @@ function RecipesList(props) {
         <Link className='tab' to="/user-recipes">Recipes by Author</Link>
         <Link className='tab' to="/add-recipe">Add Recipe</Link>
       </div>
+      <input className = 'search-input' type='text' placeholder='Search recipes here' value={searchTerm} onChange={handleSearch}></input>
       <div className="recipes-body">
-        {props.recipesList.map(recipe => {
+        {recipeData.map(recipe => {
           console.log("Recipe here", recipe.id);
           return (
             <div key={recipe.id} className="recipe-card">
