@@ -48,66 +48,68 @@ const UpdateRecipe = props => {
 
   return (
     <div>
-      <Link onClick={props.getRecipes} to="/all-recipes">
-        All Recipes
-      </Link>
-      <Link to="/user-recipes">Recipes by Author</Link>
-      <Link to="/add-recipe">Add Recipe</Link>
-      <h2>Add a Recipe</h2>
-      <form onSubmit={handleSubmit}>
-        <br />
-        <TextField
-          required
-          label="Title"
-          id="title"
-          name="title"
-          value={state.title}
-          onChange={changeHandler}
-        />
-        <br />
-        <TextField
-          required
-          id="creator"
-          name="creator"
-          placeholder="creator"
-          value={state.creator}
-          onChange={changeHandler}
-        />
-        <br />
-        <TextField
-          required
-          label="Ingredients"
-          id="ingredients"
-          name="ingredients"
-          value={state.ingredients}
-          onChange={changeHandler}
-        />
-        <br />
-        <TextField
-          multiline
-          required
-          label="Directions"
-          id="directions"
-          name="directions"
-          value={state.directions}
-          onChange={changeHandler}
-        />
-        <br />
+      <div className='tabs-container'>
+        <Link className='tab' onClick={props.getRecipes} to="/all-recipes">All Recipes</Link>
+        <Link className='tab' to="/user-recipes">Recipes by Author</Link>
+        <Link className='tab' to="/add-recipe">Add Recipe</Link>
+      </div>
+      <div className='entry-container'>
+        <h2>Update Recipe</h2>
+        <form onSubmit={handleSubmit}>
+          <br />
+          <TextField
+            required
+            label="Title"
+            id="title"
+            name="title"
+            value={state.title}
+            onChange={changeHandler}
+          />
+          <br />
+          <TextField
+            required
+            id="creator"
+            name="creator"
+            placeholder="creator"
+            value={state.creator}
+            onChange={changeHandler}
+          />
+          <br />
+          <TextField
+            required
+            label="Ingredients"
+            id="ingredients"
+            name="ingredients"
+            value={state.ingredients}
+            onChange={changeHandler}
+          />
+          <br />
+          <TextField
+            multiline
+            required
+            label="Directions"
+            id="directions"
+            name="directions"
+            value={state.directions}
+            onChange={changeHandler}
+          />
+          <br />
 
-        <TextField
-          required
-          label="category"
-          id="category"
-          name="category"
-          value={state.category}
-          onChange={changeHandler}
-        />
-        <br />
-        <br />
-        <Button type="submit" variant="contained" color="primary">
-          Update Recipe
-        </Button>
-      </form>
+          <TextField
+            required
+            label="category"
+            id="category"
+            name="category"
+            value={state.category}
+            onChange={changeHandler}
+          />
+          <br />
+          <br />
+          <Button type="submit" variant="contained" color="primary">
+            Update Recipe
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };

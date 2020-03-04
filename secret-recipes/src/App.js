@@ -16,12 +16,18 @@ import UpdateRecipe from "./components/UpdateRecipe";
 
 function App() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
     <div className="App">
       <div className="navigation">
-        <h1>Home Page</h1>
-        <Link to="/login">Login</Link>
-        <Link to="/">Sign Up</Link>
+        <div className='logo'>
+          <h1>Secret Family Recipes</h1>
+        </div>
+        <div>
+          {/* <Link to="/login">Login</Link> */}
+          <a className='nav-link' href='#'>About Us</a>
+          <a className='nav-link' href='#'>Contact</a>
+          {/* <Link to="/">Sign Up</Link> */}
+        </div>
       </div>
       <Switch>
         {/* ROUTES */}
@@ -40,7 +46,7 @@ function App() {
         />
       </Switch>
     </div>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 }
 

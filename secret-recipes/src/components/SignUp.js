@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
@@ -37,7 +38,7 @@ const SignUp = props => {
   };
 
   return (
-    <div>
+    <div className='entry-container'>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <TextField label="Name" id="name" name="name" onChange={handleChange} />
@@ -62,6 +63,7 @@ const SignUp = props => {
           required
           label="Password"
           id="password"
+          type='password'
           name="password"
           onChange={handleChange}
         />
@@ -72,6 +74,7 @@ const SignUp = props => {
         </Button>
       </form>
       <br />
+      Already have an account, <Link to='/login'>Log In</Link>
     </div>
   );
 };

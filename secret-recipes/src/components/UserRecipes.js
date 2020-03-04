@@ -27,9 +27,11 @@ const UserRecipes = () => {
 
   return (
     <div>
-      <Link to="/all-recipes">All Recipes</Link>
-      <Link to="/user-recipes">Recipes by Author</Link>
-      <Link to="/add-recipe">Add Recipe</Link>
+      <div className='tabs-container'>
+        <Link className='tab' to="/all-recipes">All Recipes</Link>
+        <Link className='tab' to="/user-recipes">Recipes by Author</Link>
+        <Link className='tab' to="/add-recipe">Add Recipe</Link>
+      </div>
       <div className="user-recipes-contatiner"></div>
     </div>
   );
