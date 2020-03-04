@@ -13,7 +13,7 @@ const initialState = {
       ingredients: "",
       directions: "",
       category: "",
-      user_id: localStorage.getItem("id")
+      user_id: null
     }
   ],
   fetchingRecipesList: false,
@@ -35,7 +35,7 @@ export const getRecipesByUserReducer = (
       return {
         ...state,
         fetchingRecipesList: true,
-        recipes: payload
+        recipe: payload
       };
     case FETCH_RECIPESBYUSER_FAILURE:
       return {

@@ -5,13 +5,13 @@ import {
 } from "./index";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-const getRecipesByUser = () => dispatch => {
+const getRecipesByUser = recipe => dispatch => {
   dispatch({ type: FETCH_RECIPESBYUSER_START });
 
   return axiosWithAuth()
-    .get(`/recipes/${localStorage.getItem("id")}`)
+    .get(`/recipes/${recipe.user_id}/user`)
     .then(res => {
-      console.log("Getting Users Recipes...", res.data);
+      console.log("Getting Users Recipes...", recipe);
       dispatch({ type: FETCH_RECIPESBYUSER_SUCCESS, payload: res.data });
     })
     .catch(err => {

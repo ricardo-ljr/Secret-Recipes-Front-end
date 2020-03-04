@@ -19,7 +19,7 @@ const initialState = {
   ingredients: "",
   directions: "",
   category: "",
-  user_id: localStorage.getItem("id")
+  user_id: null
 };
 
 const UserRecipes = props => {
@@ -29,7 +29,7 @@ const UserRecipes = props => {
   const [recipe, setRecipe] = useState(initialState);
 
   useEffect(() => {
-    console.log("ID Here", props.user_id);
+    console.log("Id Here", props.user_id);
     props.getRecipesByUser(props.user_id);
   }, []);
 
@@ -51,11 +51,11 @@ const UserRecipes = props => {
       <Link to="/add-recipe">Add Recipe</Link>
       <div className="user-recipes-contatiner">
         {props.recipesByUser.map(recipe => {
-          console.log("Recipes Here", recipe.user_id);
+          console.log("Recipes By User_ID Here", recipe.user_id);
           return (
             <div key={recipe.user_id}>
               {recipe.creator}
-              {recipe.tile}
+              <p>{recipe.title}</p>
             </div>
           );
         })}

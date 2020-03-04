@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
@@ -26,8 +27,8 @@ const Login = props => {
   };
 
   return (
-    <div>
-      <h2>LogIn</h2>
+    <div className='entry-container'>
+      <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
         <TextField
           required
@@ -41,6 +42,7 @@ const Login = props => {
           required
           label="Password"
           id="password"
+          type='password'
           name="password"
           onChange={handleChange}
         />
@@ -51,6 +53,7 @@ const Login = props => {
         </Button>
       </form>
       <br />
+      New to the app, <Link to='/'>Sign Up</Link>
     </div>
   );
 };
