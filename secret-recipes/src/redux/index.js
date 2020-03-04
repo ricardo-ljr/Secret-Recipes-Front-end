@@ -6,6 +6,7 @@ import { getRecipesReducer } from "./getRecipesReducer";
 import { addRecipeReducer } from "./addRecipeReducer";
 import { deleteRecipesReducer } from "./deleteRecipeReducer";
 import { updateRecipeReducer } from "./updateRecipeReducer";
+import { getRecipesByUserReducer } from "./getRecipesByUserReducer";
 
 export default combineReducers({
   loginReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
   getRecipesReducer,
   addRecipeReducer,
   deleteRecipesReducer,
-  updateRecipeReducer
+  updateRecipeReducer,
+  getRecipesByUserReducer
 });

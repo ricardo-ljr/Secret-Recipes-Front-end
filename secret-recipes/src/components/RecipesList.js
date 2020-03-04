@@ -76,7 +76,6 @@ function RecipesList(props) {
                 onClick={e => {
                   deleteRecipe(recipe.id);
                   props.history.push("/all-recipes");
-                  document.location.reload(true);
                 }}
               >
                 Delete
