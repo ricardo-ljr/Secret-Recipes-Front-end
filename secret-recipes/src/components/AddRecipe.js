@@ -33,6 +33,8 @@ const AddRecipe = props => {
     e.preventDefault();
     props.addRecipe(recipeToAdd);
     setRecipeToAdd("");
+
+    props.history.push("/all-recipes");
     console.log(recipeToAdd);
   };
 
@@ -48,7 +50,7 @@ const AddRecipe = props => {
         <br />
         <TextField
           required
-          label="Title"
+          label="title"
           id="title"
           name="title"
           value={recipeToAdd.title}
@@ -57,16 +59,16 @@ const AddRecipe = props => {
         <br />
         <TextField
           required
+          label="creator"
           id="creator"
           name="creator"
-          placeholder="creator"
           value={recipeToAdd.creator}
           onChange={onChange}
         />
         <br />
         <TextField
           required
-          label="Ingredients"
+          label="ingredients"
           id="ingredients"
           name="ingredients"
           value={recipeToAdd.ingredients}
@@ -76,17 +78,17 @@ const AddRecipe = props => {
         <TextField
           multiline
           required
-          label="Directions"
+          label="directions"
           id="directions"
           name="directions"
           value={recipeToAdd.directions}
           onChange={onChange}
         />
         <br />
-        <InputLabel id="category-label">Category</InputLabel>
+
         <TextField
           required
-          labelId="category-label"
+          label="category"
           id="category"
           name="category"
           value={recipeToAdd.category}

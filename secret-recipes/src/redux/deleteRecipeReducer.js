@@ -1,7 +1,7 @@
 import {
-  FETCH_RECIPES_START,
-  FETCH_RECIPES_SUCCESS,
-  FETCH_RECIPES_FAILURE
+  DELETE_RECIPE_START,
+  DELETE_RECIPE_SUCCESS,
+  DELETE_RECIPE_FAILURE
 } from "../action";
 
 const initialState = {
@@ -16,25 +16,28 @@ const initialState = {
       user_id: localStorage.getItem("id")
     }
   ],
-  fetchingRecipesList: false,
+  deletingRecipes: false,
   error: ""
 };
 
-export const getRecipesReducer = (state = initialState, { type, payload }) => {
+export const deleteRecipesReducer = (
+  state = initialState,
+  { type, payload }
+) => {
   switch (type) {
-    case FETCH_RECIPES_START:
+    case DELETE_RECIPE_START:
       return {
         ...state,
-        fetchingRecipesList: true,
+        deletingRecipes: true,
         error: null
       };
-    case FETCH_RECIPES_SUCCESS:
+    case DELETE_RECIPE_SUCCESS:
       return {
         ...state,
-        fetchingRecipesList: true,
-        recipes: payload
+        deletingRecipes: false,
+        recipes: state.recipes.filter(recipe => recipe.id !== payload)
       };
-    case FETCH_RECIPES_FAILURE:
+    case DELETE_RECIPE_FAILURE:
       return {
         ...state,
         error: payload
