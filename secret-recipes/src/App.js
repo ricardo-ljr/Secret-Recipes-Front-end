@@ -1,26 +1,37 @@
-import React from 'react';
-import {Route, Link, BrowserRouter} from 'react-router-dom'
-import './App.css';
-import SignUp from './components/SignUp'
-import LogIn from './components/Login'
-import Home from './components/Home'
-import UserRecipes from './components/UserRecipes'
-import AddRecipe from './components/AddRecipe'
+import React from "react";
+
+import "./App.css";
+
+// COMPONENTS IMPORTS
+import Home from "./components/Home";
+import { Route, Switch, Link } from "react-router-dom";
+import { PrivateRoute } from "./utils/PrivateRoute";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import UserRecipes from "./components/UserRecipes";
+import AddRecipe from "./components/AddRecipe";
+import RecipesList from "./components/RecipesList";
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
-        <h1>Welcome Page</h1>
-        <Link to='/login'>LogIn</Link><br />
-        <Link to='/signup'>Sign Up</Link>
-        <Route exact path='/' component={Home}></Route>
-        <Route exact path='/user-recipes/'>
-          <UserRecipes />
-        </Route>
-        <Route exact path='/signup' component={SignUp} />
-        <Route exact path='/login' component={LogIn} />
-        <Route exact path='/add' component={AddRecipe} />
+      <div className="navigation">
+        <h1>Home Page</h1>
+        <Link to="/login">Login</Link>
+        <Link to="/">Sign Up</Link>
+      </div>
+      <Switch>
+        {/* ROUTES */}
+        <Route exact path="/" component={SignUp} />
+        <Route exact path="/login" component={Login} />
+
+        {/* PRIVATE ROUTES */}
+        <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRoute exact path="/user-recipes" component={UserRecipes} />
+        <PrivateRoute exact path="/all-recipes" component={RecipesList} />
+        <PrivateRoute extact path="/add-recipe" component={AddRecipe} />
+      </Switch>
     </div>
     </BrowserRouter>
   );

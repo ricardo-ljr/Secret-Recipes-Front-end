@@ -1,50 +1,79 @@
-import React, {useState} from 'react'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import React, { useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
 
-const SignUp = () => {
-    const [userInfo, setUserInfo] = useState({
-        id: Date.now(),
-        name: '',
-        email: '',
-        username: '',
-        password: ''
-    })
+// IMPORT ACTION
+import signUp from "../action/userSignUp";
 
-    const handleChange = e => {
-        setUserInfo({...userInfo, [e.target.name]: e.target.value});
-    }
+const SignUp = props => {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    username: "",
+    password: ""
+  });
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        console.log(userInfo);
-        setUserInfo({
-            id: Date.now(),
-            name: '',
-            email: '',
-            username: '',
-            password: ''
-        })
-    }
+  const handleChange = e => {
+    // console.log(e);
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    console.log(e.target.name, e.target.value);
+  };
 
-    return (
-        <div>
-            <h2>Sign Up</h2>
-            <form>
-                <TextField label='Name' id='name' name='name' onChange={handleChange} />
-                <br />
-                <TextField label='Email' id='email' name='email' onChange={handleChange} />
-                <br />
-                <TextField required label='Username' id='username' name='username' onChange={handleChange} />
-                <br />
-                <TextField required label='Password' id='password' name='password' onChange={handleChange} />
-                <br />
-                <br />
-                <Button type='submit' variant='contained' color='primary' onClick={handleSubmit}>Sign Up</Button>
-            </form>
-            <br />
-        </div>
-    )
-}
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(userInfo);
 
-export default SignUp
+    props.signUp(userInfo);
+
+    setUserInfo({
+      name: "",
+      email: "",
+      username: "",
+      password: ""
+    });
+
+    props.history.push("/login");
+  };
+
+  return (
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <TextField label="Name" id="name" name="name" onChange={handleChange} />
+
+        <br />
+        <TextField
+          label="Email"
+          id="email"
+          name="email"
+          onChange={handleChange}
+        />
+        <br />
+        <TextField
+          required
+          label="Username"
+          id="username"
+          name="username"
+          onChange={handleChange}
+        />
+        <br />
+        <TextField
+          required
+          label="Password"
+          id="password"
+          name="password"
+          onChange={handleChange}
+        />
+        <br />
+        <br />
+        <Button type="submit" variant="contained" color="primary">
+          Sign Up
+        </Button>
+      </form>
+      <br />
+    </div>
+  );
+};
+
+export default connect(null, { signUp })(SignUp);

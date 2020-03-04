@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.navigation {
+  padding: 2%;
+}
+
+.recipes-body {
+  margin: 0 auto;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0 auto;
+}
+.recipe-container {
+  margin-top: 1%;
+  padding: 8% 2%;
+  width: 35%;
+  border: 1px solid black;
+}
