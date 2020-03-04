@@ -89,7 +89,7 @@ function RecipesList(props) {
               <h2 className='recipe-title'>{recipe.title}</h2>
               <h4 className='recipe-author'>By {recipe.creator}</h4>
               <p><span className='ingredients'>Ingredients: </span>{recipe.ingredients}</p>
-              <br />
+              <br /
               <div className='recipe-card-buttons'>
                 <Link style={{textDecoration:'none'}} to={`/update-recipe/${recipe.id}`}>
                   <Button variant='contained' color='secondary'>Update</Button>
@@ -104,6 +104,7 @@ function RecipesList(props) {
                   Delete
                 </Button>
               </div>
+
             </div>
           );
         })}

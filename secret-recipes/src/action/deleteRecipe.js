@@ -12,6 +12,7 @@ const deleteRecipes = id => dispatch => {
     .then(res => {
       console.log(res);
       dispatch({ type: DELETE_RECIPE_SUCCESS, payload: id });
+      document.location.reload(true);
     })
     .catch(err => {
       console.log(err);
