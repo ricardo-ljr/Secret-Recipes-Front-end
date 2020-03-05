@@ -78,7 +78,7 @@ function RecipesList(props) {
   return (
     <div>
       <div className="tabs-container">
-        <Link className="tab" onClick={props.getRecipes} to="/all-recipes">
+        <Link className="tab active" onClick={props.getRecipes} to="/all-recipes">
           All Recipes
         </Link>
         <Link className="tab" to="/user-recipes">
@@ -87,6 +87,7 @@ function RecipesList(props) {
         <Link className="tab" to="/add-recipe">
           Add Recipe
         </Link>
+
       </div>
       <input
         className="search-input"

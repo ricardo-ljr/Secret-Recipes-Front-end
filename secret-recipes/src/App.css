@@ -39,6 +39,8 @@
 
 body{
   background: #D3D3D3;
+  background-image: url('https://everpresent.com/wp-content/uploads/2017/12/IMG_8529.jpg');
+  background-size: cover;
 }
 .navigation {
   padding: 0 2%;
@@ -46,8 +48,14 @@ body{
   justify-content: space-between;
   align-items: center;
   background: #40E0D0;
-  box-shadow: 5px 1px 5px 5px silver;
+  box-shadow: 5px 10px 5px rgba(97, 91, 91, 0.356);
   color: white;
+}
+
+.nav-link-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
 }
 
 .nav-link{
@@ -61,16 +69,21 @@ body{
   font-size: 20px;
 }
 
+.container{
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+}
 .entry-container{
-  box-shadow: 5px 1px 5px 5px silver;
-  background-color: rgba(245, 245, 245, 0.466);
+  box-shadow: 5px 10px 5px rgba(97, 91, 91, 0.589);
+  background-color: rgba(245, 245, 245, 0.766);
   border: 2px solid silver;
   width: 40%;
   border-radius: 10px;
-  margin: 2% auto;
-  padding: 2%;
+  margin: 5% auto;
+  padding: 0 2% 2% 2%;
 }
-
 .tabs-container{
   display: flex;
   justify-content: center;
@@ -80,13 +93,21 @@ body{
 }
 .tab{
   padding: 2% 3%;
-  background-color: #FF7F50;
-  border: 1px solid white;
+  text-align: center;
+  background-color: rgb(155, 78, 50);
+  border: 1px solid gray;
   border-radius: 8px;
   text-decoration: none;
-  color: white;
+  color: gray;
   margin: 0 1%;
   font-weight: bold;
+}
+
+.active{
+  background-color: #FF7F50;
+  color: white;
+  border-color: white;
+
 }
 
 .search-input{
@@ -111,10 +132,10 @@ body{
   text-align: left;
   width: 40%;
   padding: 2% 3%;
-  box-shadow: 5px 1px 5px 5px silver;
+  box-shadow: 5px 10px 5px rgba(97, 91, 91, 0.589);
   border: 2px solid silver;
   border-radius: 5px;
-  background-color: rgba(245, 245, 245, 0.466);
+  background-color: rgba(245, 245, 245, 0.766);
   margin: 2% auto;
 }
 
@@ -124,5 +145,40 @@ body{
 
 .recipe-card-buttons *{
   margin-right: 2%;
+  color: white;
+
+}
+
+@media(max-width: 640px){
+  .navigation{
+    flex-direction: column;
+    margin-bottom: 5%;
+  }
+  .tabs-container{
+    flex-direction: column;
+  }
+  .tab{
+    margin: 2% 0;
+  }
+}
+
+/* Transition Styles */
+
+.fade-appear, .fade-enter{
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-appear-active, .fade-enter.fade-enter-active{
+  opacity: 1;
+  transition: opacity 500ms linear 250ms;
+}
+
+.fade-exit{
+  opacity: 1;
+}
+.fade-exit.fade-exit-active{
+  opacity: 0;
+  transition: opacity 250ms linear;
 }
 

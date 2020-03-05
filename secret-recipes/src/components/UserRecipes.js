@@ -51,17 +51,19 @@ const UserRecipes = props => {
   }
 
   return (
-    <div>
+
+    <div className='container'>
       <div className="tabs-container">
         <Link className="tab" to="/all-recipes">
           All Recipes
         </Link>
-        <Link className="tab" to="/user-recipes">
+        <Link className="tab active" to="/user-recipes">
           My Recipes
         </Link>
         <Link className="tab" to="/add-recipe">
           Add Recipe
         </Link>
+
       </div>
       {props.recipesByUser.length === 0 ? (
         <p>You Don't Have Any Recipes Yet, add some</p>

@@ -14,6 +14,13 @@ import AddRecipe from "./components/AddRecipe";
 import RecipesList from "./components/RecipesList";
 import UpdateRecipe from "./components/UpdateRecipe";
 
+// TRANSITION IMPORTS
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
+
+
 function App() {
   return (
     // <BrowserRouter>
@@ -22,32 +29,38 @@ function App() {
         <div className='logo'>
           <h1>Secret Family Recipes</h1>
         </div>
-        <div>
+        <div className='nav-link-container'>
           {/* <Link to="/login">Login</Link> */}
           <a className='nav-link' href='#'>About Us</a>
           <a className='nav-link' href='#'>Contact</a>
           {/* <Link to="/">Sign Up</Link> */}
         </div>
       </div>
-      <Switch>
-        {/* ROUTES */}
-        <Route exact path="/" component={SignUp} />
-        <Route exact path="/login" component={Login} />
+      <Route render={({location}) => (
+        <TransitionGroup>
+          <CSSTransition key={location.key} timeout={500} classNames='fade'>
+            <Switch location={location}>
+              {/* ROUTES */}
+              <Route exact path="/" component={SignUp} />
+              <Route exact path="/login" component={Login} />
 
-        {/* PRIVATE ROUTES */}
-        <PrivateRoute exact path="/home" component={Home} />
-        <PrivateRoute exact path="/user-recipes" component={UserRecipes} />
-        <PrivateRoute exact path="/all-recipes" component={RecipesList} />
-        <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
-        <PrivateRoute
-          exact
-          path="/update-recipe/:id"
-          component={UpdateRecipe}
-        />
-      </Switch>
-    </div>
+              {/* PRIVATE ROUTES */}
+              <PrivateRoute exact path="/home" component={Home} />
+              <PrivateRoute exact path="/user-recipes" component={UserRecipes} />
+              <PrivateRoute exact path="/all-recipes" component={RecipesList} />
+              <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
+              <PrivateRoute
+                exact
+                path="/update-recipe/:id"
+                component={UpdateRecipe}
+              />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+      )} ></Route>
+      </div>
     // </BrowserRouter>
-  );
+  )
 }
 
 export default App;

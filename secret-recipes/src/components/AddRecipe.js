@@ -47,9 +47,10 @@ const AddRecipe = props => {
         <Link className="tab" to="/user-recipes">
           My Recipes
         </Link>
-        <Link className="tab" to="/add-recipe">
+        <Link className="tab active" to="/add-recipe">
           Add Recipe
         </Link>
+
       </div>
       <div className="entry-container">
         <h2>Add a Recipe</h2>

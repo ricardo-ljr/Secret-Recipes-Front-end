@@ -10,6 +10,7 @@ import thunk from "redux-thunk";
 // REDUCER IMPORT
 import combineReducers from "./redux";
 
+
 const store = createStore(combineReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
