@@ -82,7 +82,7 @@ function RecipesList(props) {
           All Recipes
         </Link>
         <Link className="tab" to="/user-recipes">
-          Recipes by Author
+          My Recipes
         </Link>
         <Link className="tab" to="/add-recipe">
           Add Recipe

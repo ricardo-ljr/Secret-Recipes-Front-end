@@ -48,12 +48,18 @@ const UpdateRecipe = props => {
 
   return (
     <div>
-      <div className='tabs-container'>
-        <Link className='tab' onClick={props.getRecipes} to="/all-recipes">All Recipes</Link>
-        <Link className='tab' to="/user-recipes">Recipes by Author</Link>
-        <Link className='tab' to="/add-recipe">Add Recipe</Link>
+      <div className="tabs-container">
+        <Link className="tab" onClick={props.getRecipes} to="/all-recipes">
+          All Recipes
+        </Link>
+        <Link className="tab" to="/user-recipes">
+          My Recipes
+        </Link>
+        <Link className="tab" to="/add-recipe">
+          Add Recipe
+        </Link>
       </div>
-      <div className='entry-container'>
+      <div className="entry-container">
         <h2>Update Recipe</h2>
         <form onSubmit={handleSubmit}>
           <br />

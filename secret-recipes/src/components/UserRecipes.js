@@ -44,26 +44,46 @@ const UserRecipes = props => {
 
   // const authorList = ["abc", "xyz", "random"];
 
+  let myRecipes = [];
+
+  if (props.recipesByUser.length > 1) {
+    myRecipes = props.recipesByUser;
+  }
+
   return (
     <div>
-      <Link to="/all-recipes">All Recipes</Link>
-      <Link to="/user-recipes">Recipes by Author</Link>
-      <Link to="/add-recipe">Add Recipe</Link>
-      <div className="user-recipes-contatiner">
-        {props.recipesByUser.map(recipe => {
-          console.log("Recipes By User_ID Here", recipe.user_id);
-          return (
-            <div key={recipe.user_id}>
-              {recipe.creator}
-              <p>{recipe.title}</p>
-            </div>
-          );
-        })}
+      <div className="tabs-container">
+        <Link className="tab" to="/all-recipes">
+          All Recipes
+        </Link>
+        <Link className="tab" to="/user-recipes">
+          My Recipes
+        </Link>
+        <Link className="tab" to="/add-recipe">
+          Add Recipe
+        </Link>
       </div>
+      {props.recipesByUser.length === 0 ? (
+        <p>You Don't Have Any Recipes Yet, add some</p>
+      ) : (
+        <div className="user-recipes-contatiner">
+          {props.recipesByUser.map(recipe => {
+            console.log("Recipes id Here", recipe.id);
+            return (
+              <div key={recipe.id}>
+                <p>{recipe.title}</p>
+                <p>{recipe.ingredients}</p>
+                <p>{recipe.directions}</p>
+                <p>{recipe.category}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
+    // </div>
   );
 };
-
 const mapStateToProps = ({ getRecipesByUserReducer }) => {
   return {
     recipesByUser: getRecipesByUserReducer.recipe
