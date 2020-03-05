@@ -9,9 +9,9 @@ const getRecipesByUser = () => dispatch => {
   dispatch({ type: FETCH_RECIPESBYUSER_START });
 
   return axiosWithAuth()
-    .get(`/recipes/${localStorage.getItem("id")}`)
+    .get(`/recipes/${localStorage.getItem("id")}/user`)
     .then(res => {
-      console.log("Getting Users Recipes...", res.data);
+      console.log("Getting Users Recipes...");
       dispatch({ type: FETCH_RECIPESBYUSER_SUCCESS, payload: res.data });
     })
     .catch(err => {
