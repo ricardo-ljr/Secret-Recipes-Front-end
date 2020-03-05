@@ -41,7 +41,7 @@ const AddRecipe = props => {
   return (
     <div>
       <div className="tabs-container">
-        <Link className="tab" onClick={props.getRecipes} to="/all-recipes">
+        <Link className="tab" to="/all-recipes">
           All Recipes
         </Link>
         <Link className="tab" to="/user-recipes">
@@ -50,7 +50,6 @@ const AddRecipe = props => {
         <Link className="tab active" to="/add-recipe">
           Add Recipe
         </Link>
-
       </div>
       <div className="entry-container">
         <h2>Add a Recipe</h2>
