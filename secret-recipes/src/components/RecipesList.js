@@ -100,13 +100,21 @@ function RecipesList(props) {
           console.log("Recipe here", recipe.id);
           return (
             <div key={recipe.id} className="recipe-card">
-              <h2 className='recipe-title'>{recipe.title}</h2>
-              <h4 className='recipe-author'>By {recipe.creator}</h4>
-              <p><span className='ingredients'>Ingredients: </span>{recipe.ingredients}</p>
+              <h2 className="recipe-title">{recipe.title}</h2>
+              <h4 className="recipe-author">By {recipe.creator}</h4>
+              <p>
+                <span className="ingredients">Ingredients: </span>
+                {recipe.ingredients}
+              </p>
               <br />
-              <div className='recipe-card-buttons'>
-                <Link style={{textDecoration:'none'}} to={`/update-recipe/${recipe.id}`}>
-                  <Button variant='contained' color='secondary'>Update</Button>
+              <div className="recipe-card-buttons">
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={`/update-recipe/${recipe.id}`}
+                >
+                  <Button variant="contained" color="secondary">
+                    Update
+                  </Button>
                 </Link>
                 <Button
                   variant="contained"
@@ -120,10 +128,6 @@ function RecipesList(props) {
                   Delete
                 </Button>
               </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 567c955771f6eec0da4b9a101edda5a00441208d
             </div>
           );
         })}
