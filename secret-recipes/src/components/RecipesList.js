@@ -69,7 +69,7 @@ function RecipesList(props) {
   };
 
   let recipeData = [];
-  if (recipeList.length > 1) {
+  if (searchTerm !== "") {
     recipeData = recipeList;
   } else {
     recipeData = props.recipesList;
@@ -78,7 +78,11 @@ function RecipesList(props) {
   return (
     <div>
       <div className="tabs-container">
-        <Link className="tab active" onClick={props.getRecipes} to="/all-recipes">
+        <Link
+          className="tab active"
+          onClick={props.getRecipes}
+          to="/all-recipes"
+        >
           All Recipes
         </Link>
         <Link className="tab" to="/user-recipes">
@@ -87,7 +91,6 @@ function RecipesList(props) {
         <Link className="tab" to="/add-recipe">
           Add Recipe
         </Link>
-
       </div>
       <input
         className="search-input"
@@ -122,8 +125,6 @@ function RecipesList(props) {
                   color="secondary"
                   onClick={e => {
                     deleteRecipe(recipe.id);
-                    props.history.push("/all-recipes");
-                    document.location.reload(true);
                   }}
                 >
                   Delete

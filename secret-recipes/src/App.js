@@ -15,52 +15,70 @@ import RecipesList from "./components/RecipesList";
 import UpdateRecipe from "./components/UpdateRecipe";
 
 // TRANSITION IMPORTS
-import {
-  CSSTransition,
-  TransitionGroup,
-} from 'react-transition-group';
-
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 function App() {
   return (
     // <BrowserRouter>
     <div className="App">
       <div className="navigation">
-        <div className='logo'>
+        <div className="logo">
           <h1>Secret Family Recipes</h1>
         </div>
-        <div className='nav-link-container'>
+        <div className="nav-link-container">
           {/* <Link to="/login">Login</Link> */}
-          <a className='nav-link' href='#'>About Us</a>
-          <a className='nav-link' href='#'>Contact</a>
+          <a
+            className="nav-link"
+            href="https://secretfamilyrecipeszs.netlify.com/about.html"
+            target="_blank"
+          >
+            About Us
+          </a>
+          <a
+            className="nav-link"
+            href="https://secretfamilyrecipesrd.netlify.com/contact.html"
+            target="_blank"
+          >
+            Contact
+          </a>
           {/* <Link to="/">Sign Up</Link> */}
         </div>
       </div>
-      <Route render={({location}) => (
-        <TransitionGroup>
-          <CSSTransition key={location.key} timeout={500} classNames='fade'>
-            <Switch location={location}>
-              {/* ROUTES */}
-              <Route exact path="/" component={SignUp} />
-              <Route exact path="/login" component={Login} />
+      <Route
+        render={({ location }) => (
+          <TransitionGroup>
+            <CSSTransition key={location.key} timeout={500} classNames="fade">
+              <Switch location={location}>
+                {/* ROUTES */}
+                <Route exact path="/" component={SignUp} />
+                <Route exact path="/login" component={Login} />
 
-              {/* PRIVATE ROUTES */}
-              <PrivateRoute exact path="/home" component={Home} />
-              <PrivateRoute exact path="/user-recipes" component={UserRecipes} />
-              <PrivateRoute exact path="/all-recipes" component={RecipesList} />
-              <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
-              <PrivateRoute
-                exact
-                path="/update-recipe/:id"
-                component={UpdateRecipe}
-              />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
-      )} ></Route>
-      </div>
+                {/* PRIVATE ROUTES */}
+                <PrivateRoute exact path="/home" component={Home} />
+                <PrivateRoute
+                  exact
+                  path="/user-recipes"
+                  component={UserRecipes}
+                />
+                <PrivateRoute
+                  exact
+                  path="/all-recipes"
+                  component={RecipesList}
+                />
+                <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
+                <PrivateRoute
+                  exact
+                  path="/update-recipe/:id"
+                  component={UpdateRecipe}
+                />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        )}
+      ></Route>
+    </div>
     // </BrowserRouter>
-  )
+  );
 }
 
 export default App;
