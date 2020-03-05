@@ -47,8 +47,7 @@ const UpdateRecipe = props => {
   };
 
   return (
-
-    <div className='container>
+    <div className="container">
       <div className="tabs-container">
         <Link className="tab" onClick={props.getRecipes} to="/all-recipes">
           All Recipes
@@ -59,7 +58,6 @@ const UpdateRecipe = props => {
         <Link className="tab" to="/add-recipe">
           Add Recipe
         </Link>
-
       </div>
       <div className="entry-container">
         <h2>Update Recipe</h2>

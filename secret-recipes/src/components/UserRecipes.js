@@ -51,8 +51,7 @@ const UserRecipes = props => {
   }
 
   return (
-
-    <div className='container'>
+    <div>
       <div className="tabs-container">
         <Link className="tab" to="/all-recipes">
           All Recipes
@@ -63,12 +62,13 @@ const UserRecipes = props => {
         <Link className="tab" to="/add-recipe">
           Add Recipe
         </Link>
-
       </div>
       {props.recipesByUser.length === 0 ? (
-        <p>You Don't Have Any Recipes Yet, add some</p>
+        <p className="entry-container">
+          You Don't Have Any Recipes Yet, add some
+        </p>
       ) : (
-        <div className="user-recipes-contatiner">
+        <div className="recipe-body">
           {props.recipesByUser.map(recipe => {
             console.log("Recipes id Here", recipe.id);
             return (
