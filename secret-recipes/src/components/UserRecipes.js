@@ -26,7 +26,7 @@ const UserRecipes = () => {
   // const authorList = ["abc", "xyz", "random"];
 
   return (
-    <div>
+    <div className='container'>
       <div className='tabs-container'>
         <Link className='tab' to="/all-recipes">All Recipes</Link>
         <Link className='tab active' to="/user-recipes">Recipes by Author</Link>

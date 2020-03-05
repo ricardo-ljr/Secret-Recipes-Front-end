@@ -69,6 +69,12 @@ body{
   font-size: 20px;
 }
 
+.container{
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+}
 .entry-container{
   box-shadow: 5px 10px 5px rgba(97, 91, 91, 0.589);
   background-color: rgba(245, 245, 245, 0.766);
@@ -78,7 +84,6 @@ body{
   margin: 5% auto;
   padding: 0 2% 2% 2%;
 }
-
 .tabs-container{
   display: flex;
   justify-content: center;
@@ -157,4 +162,23 @@ body{
   }
 }
 
+/* Transition Styles */
+
+.fade-appear, .fade-enter{
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-appear-active, .fade-enter.fade-enter-active{
+  opacity: 1;
+  transition: opacity 500ms linear 250ms;
+}
+
+.fade-exit{
+  opacity: 1;
+}
+.fade-exit.fade-exit-active{
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
 
