@@ -110,6 +110,10 @@ function RecipesList(props) {
                 <span className="ingredients">Ingredients: </span>
                 {recipe.ingredients}
               </p>
+              <p>
+                <span className="ingredients">Directions: </span>
+                {recipe.directions}
+              </p>
               <br />
               <div className="recipe-card-buttons">
                 <Link

@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import getRecipesByUser from "../action/getRecipeByUser";
+import Button from "@material-ui/core/Button";
 
 // const getRecipes = author => {
 //   return ["Recipe 1", "Recipe 2", "Recipe 3"];
@@ -72,11 +73,28 @@ const UserRecipes = props => {
           {props.recipesByUser.map(recipe => {
             console.log("Recipes id Here", recipe.id);
             return (
-              <div key={recipe.id}>
-                <p>{recipe.title}</p>
-                <p>{recipe.ingredients}</p>
-                <p>{recipe.directions}</p>
-                <p>{recipe.category}</p>
+              <div className="recipe-card" key={recipe.id}>
+                <h2 className="recipe-title">{recipe.title}</h2>
+                <h4 className="recipe-author">By {recipe.creator}</h4>
+                <p>
+                  <span className="ingredients">Ingredients: </span>
+                  {recipe.ingredients}
+                </p>
+                <p>
+                  <span className="ingredients">Directions: </span>
+                  {recipe.directions}
+                </p>
+                <br />
+                <div className="recipe-card-buttons">
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`/update-recipe/${recipe.id}`}
+                  >
+                    <Button variant="contained" color="secondary">
+                      Update
+                    </Button>
+                  </Link>
+                </div>
               </div>
             );
           })}
